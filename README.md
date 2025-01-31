@@ -1,10 +1,14 @@
-![Tests](https://github.com/googlemaps/android-maps-ktx/actions/workflows/test.yml/badge.svg)
+[![Maven Central](https://img.shields.io/maven-central/v/com.google.maps.android/maps-ktx)](https://maven-badges.herokuapp.com/maven-central/com.google.maps.android/maps-ktx)
+![Release](https://github.com/googlemaps/android-maps-ktx/workflows/Release/badge.svg)
 ![Stable](https://img.shields.io/badge/stability-stable-green)
-[![Discord](https://img.shields.io/discord/676948200904589322)](https://discord.gg/hYsWbmk)
-![Apache-2.0](https://img.shields.io/badge/license-Apache-blue)
+[![Tests/Build](https://github.com/googlemaps/android-maps-ktx/actions/workflows/test.yml/badge.svg)](https://github.com/googlemaps/android-maps-ktx/actions/workflows/test.yml)
 
-Maps Android KTX
-================
+![Contributors](https://img.shields.io/github/contributors/googlemaps/android-maps-ktx?color=green)
+[![License](https://img.shields.io/github/license/googlemaps/android-maps-ktx?color=blue)][license]
+[![StackOverflow](https://img.shields.io/stackexchange/stackoverflow/t/google-maps?color=orange&label=google-maps&logo=stackoverflow)](https://stackoverflow.com/questions/tagged/google-maps)
+[![Discord](https://img.shields.io/discord/676948200904589322?color=6A7EC2&logo=discord&logoColor=ffffff)][Discord server]
+
+# Maps Android KTX
 
 ## Description
 This repository contains Kotlin extensions (KTX) for:
@@ -14,10 +18,13 @@ This repository contains Kotlin extensions (KTX) for:
 It enables you to write more concise, idiomatic Kotlin. Each set of extensions can be used independently or together.
 
 ## Requirements
-* Kotlin-enabled project
-* Kotlin coroutines
-* API level 21+
-* An [API key](https://developers.google.com/maps/documentation/android-sdk/get-api-key)
+
+- [Sign up with Google Maps Platform]
+- A Google Maps Platform [project] with the **Maps SDK for Android** enabled
+- An [API key] associated with the project above
+- Android API level 21+
+- Kotlin-enabled project
+- Kotlin coroutines
 
 ## Installation
 
@@ -32,11 +39,11 @@ dependencies {
 }
 ```
 
-## Example Usage
+## Usage
 
 With this KTX library, you should be able to take advantage of several Kotlin language features such as extension functions, named parameters and default arguments, destructuring declarations, and coroutines.
 
-### Demo App
+### Sample App
 
 <img src="https://developers.google.com/maps/documentation/android-sdk/images/utility-multilayer.png" width="150" align=right>
 
@@ -110,7 +117,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 #### Flow
 
-Listing to camera events can be collected via [Kotlin Flow](kotlin-flow). 
+Listing to camera events can be collected via [Kotlin Flow][kotlin-flow].
 
 _Before_
 ```java
@@ -195,28 +202,48 @@ val (x, y) = point
 
 ## Documentation
 
-You can learn more about all the extensions provided by this library by reading the [reference documents][Javadoc].
+You can learn more about all the extensions provided by this library by reading the [documentation].
+
+## Contributing
+
+Contributions are welcome and encouraged! If you'd like to contribute, send us a [pull request] and refer to our [code of conduct] and [contributing guide].
+
+## Terms of Service
+
+This library uses Google Maps Platform services. Use of Google Maps Platform services through this library is subject to the Google Maps Platform [Terms of Service].
+
+This library is not a Google Maps Platform Core Service. Therefore, the Google Maps Platform Terms of Service (e.g. Technical Support Services, Service Level Agreements, and Deprecation Policy) do not apply to the code in this library.
 
 ## Support
 
-Encounter an issue while using this library?
+This library is offered via an open source [license]. It is not governed by the Google Maps Platform Support [Technical Support Services Guidelines, the SLA, or the [Deprecation Policy]. However, any Google Maps Platform services used by the library remain subject to the Google Maps Platform Terms of Service.
 
-If you find a bug or have a feature request, please [file an issue].
-Or, if you'd like to contribute, send us a [pull request] and refer to our [code of conduct].
+This library adheres to [semantic versioning] to indicate when backwards-incompatible changes are introduced. Accordingly, while the library is in version 0.x, backwards-incompatible changes may be introduced at any time.
 
-You can also reach us on our [Discord channel].
+If you find a bug, or have a feature request, please [file an issue] on GitHub. If you would like to get answers to technical questions from other Google Maps Platform developers, ask through one of our [developer community channels]. If you'd like to contribute, please check the [contributing guide].
 
-For more information, check out the detailed guide on the
-[Google Developers site][devsite-guide]. 
+You can also discuss this library on our [Discord server].
 
-[Discord channel]: https://discord.gg/hYsWbmk
-[Javadoc]: https://googlemaps.github.io/android-maps-ktx
-[amu]: https://github.com/googlemaps/android-maps-utils
-[code of conduct]: CODE_OF_CONDUCT.md
-[devsite-guide]: https://developers.google.com/maps/documentation/android-api/utility/
-[file an issue]: https://github.com/googlemaps/android-maps-ktx/issues/new/choose
 [lifecycle]: https://developer.android.com/topic/libraries/architecture/coroutines#lifecyclescope
-[maps-sdk]: https://developers.google.com/maps/documentation/android-sdk/intro
-[maps-v3-sdk]: https://developers.google.com/maps/documentation/android-sdk/v3-client-migration
-[pull request]: https://github.com/googlemaps/android-maps-ktx/compare
 [kotlin-flow]: https://kotlinlang.org/docs/reference/coroutines/flow.html
+
+[API key]: https://developers.google.com/maps/documentation/android-sdk/get-api-key
+[maps-sdk]: https://developers.google.com/maps/documentation/android-sdk
+[documentation]: https://googlemaps.github.io/android-maps-ktx
+[amu]: https://github.com/googlemaps/android-maps-utils
+
+[code of conduct]: ?tab=coc-ov-file#readme
+[contributing guide]: CONTRIBUTING.md
+[Deprecation Policy]: https://cloud.google.com/maps-platform/terms
+[developer community channels]: https://developers.google.com/maps/developer-community
+[Discord server]: https://discord.gg/hYsWbmk
+[file an issue]: https://github.com/googlemaps/android-maps-ktx/issues/new/choose
+[license]: LICENSE
+[project]: https://developers.google.com/maps/documentation/android-sdk/cloud-setup
+[pull request]: https://github.com/googlemaps/android-maps-ktx/compare
+[semantic versioning]: https://semver.org
+[Sign up with Google Maps Platform]: https://console.cloud.google.com/google/maps-apis/start
+[similar inquiry]: https://github.com/googlemaps/android-maps-ktx/issues
+[SLA]: https://cloud.google.com/maps-platform/terms/sla
+[Technical Support Services Guidelines]: https://cloud.google.com/maps-platform/terms/tssg
+[Terms of Service]: https://cloud.google.com/maps-platform/terms
