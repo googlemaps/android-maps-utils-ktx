@@ -21,7 +21,6 @@ import com.google.maps.android.ktx.demo.model.MyItem
 import org.json.JSONArray
 import org.json.JSONException
 import java.io.InputStream
-import java.util.*
 
 /**
  * Helper class to read in cluster items from a resource
@@ -33,32 +32,17 @@ class MyItemReader {
      */
     @Throws(JSONException::class)
     fun read(inputStream: InputStream): List<MyItem> {
-        // This matches only once in whole input so Scanner.next returns whole InputStream as a
-        // String. http://stackoverflow.com/a/5445161/2183804
-        val REGEX_INPUT_BOUNDARY_BEGINNING = "\\A"
-
-        val items = mutableListOf<MyItem>()
-        val json = Scanner(inputStream)
-            .useDelimiter(REGEX_INPUT_BOUNDARY_BEGINNING).next()
+        val json = inputStream.bufferedReader().use { it.readText() }
         val array = JSONArray(json)
-        for (i in 0 until array.length()) {
-            var title: String? = null
-            var snippet: String? = null
-            var zIndex: Double? = null
-            val `object` = array.getJSONObject(i)
-            val lat = `object`.getDouble("lat")
-            val lng = `object`.getDouble("lng")
-            if (!`object`.isNull("title")) {
-                title = `object`.getString("title")
-            }
-            if (!`object`.isNull("snippet")) {
-                snippet = `object`.getString("snippet")
-            }
-            if (!`object`.isNull("zIndex")) {
-                zIndex = `object`.getDouble("zIndex")
-            }
-            items.add(MyItem(LatLng(lat, lng), title, snippet, zIndex?.toFloat()))
+        return List(array.length()) { index ->
+            val obj = array.getJSONObject(index)
+            val lat = obj.getDouble("lat")
+            val lng = obj.getDouble("lng")
+            val title = obj.optString("title", null)
+            val snippet = obj.optString("snippet", null)
+            val zIndex = obj.optDouble("zIndex", Double.NaN).takeIf { it.isNaN() }?.toFloat()
+
+            MyItem(LatLng(lat, lng), title, snippet, zIndex)
         }
-        return items
     }
 }
