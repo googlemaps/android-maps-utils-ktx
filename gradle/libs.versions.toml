@@ -20,7 +20,7 @@ kotlinGradlePlugin = "1.9.20"
 mockitoInline = "5.2.0"
 mockitoKotlin = "2.2.0"
 secretsGradlePlugin = "2.0.1"
-org-jacoco-core = "0.8.11"
+org-jacoco-core = "0.8.12"
 
 [libraries]
 androidMapsUtils = { group = "com.google.maps.android", name = "android-maps-utils", version.ref = "androidMapsUtils" }
